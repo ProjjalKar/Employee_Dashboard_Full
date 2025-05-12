@@ -1,0 +1,41 @@
+<div class="dashboard">
+    <h2>Employee Dashboard</h2>
+  
+    <div class="salary-highlight">Highest Salary: {{ highestSalary }}</div>
+  
+    <div class="add-form">
+      <input [(ngModel)]="newName" placeholder="Name" />
+      <input type="number" [(ngModel)]="newSalary" placeholder="Salary" />
+      <button (click)="addEmployee()" [disabled]="!newName || newSalary == null">Add Employee</button>
+    </div>
+  
+    <p-table
+      [value]="employees"
+      [paginator]="true"
+      [rows]="15"
+      sortField="salary"
+      [sortOrder]="-1"
+      [responsiveLayout]="'scroll'"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th pSortableColumn="salary">
+            Salary
+            <p-sortIcon field="salary"></p-sortIcon>
+          </th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-emp>
+        <tr>
+          <td>{{ emp.id }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.salary }}</td>
+          <td><button (click)="deleteEmployee(emp.id)">Delete</button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  
