@@ -53,5 +53,26 @@ export class DashboardComponent {
   deleteEmployee(id: number) {
     this.employees = this.employees.filter(emp => emp.id !== id);  // Also triggers change detection
   }
+
+  editingRow: number | null = null;
+editedName: string = '';
+editedSalary: number | null = null;
+
+startEdit(emp: Employee) {
+  this.editingRow = emp.id;
+  this.editedName = emp.name;
+  this.editedSalary = emp.salary;
+}
+
+updateEmployee(id: number) {
+  this.employees = this.employees.map(emp => {
+    if (emp.id === id) {
+      return { ...emp, name: this.editedName, salary: this.editedSalary ?? emp.salary };
+    }
+    return emp;
+  });
+  this.editingRow = null;
+}
+
   
 }
