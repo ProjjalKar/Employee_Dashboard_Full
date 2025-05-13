@@ -4,7 +4,7 @@
     <div class="salary-highlight">Highest Salary: {{ highestSalary }}</div>
   
     <div class="add-form">
-      <input [(ngModel)]="newName" placeholder="Name" />
+      <input [(ngModel)]="newName" placeholder="Name" type="text"/>
       <input type="number" [(ngModel)]="newSalary" placeholder="Salary" />
       <button (click)="addEmployee()" [disabled]="!newName || newSalary == null">Add Employee</button>
     </div>
