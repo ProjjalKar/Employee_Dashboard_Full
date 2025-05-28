@@ -44,14 +44,14 @@ export class DashboardComponent {
     if (this.newName.trim() && this.newSalary != null) {
       const newId = this.employees.length ? Math.max(...this.employees.map(emp => emp.id)) + 1 : 1;
       const newEmployee = { id: newId, name: this.newName.trim(), salary: this.newSalary };
-      this.employees = [...this.employees, newEmployee];  // Create new array
+      this.employees = [...this.employees, newEmployee];
       this.newName = '';
       this.newSalary = null;
     }
   }
   
   deleteEmployee(id: number) {
-    this.employees = this.employees.filter(emp => emp.id !== id);  // Also triggers change detection
+    this.employees = this.employees.filter(emp => emp.id !== id);
   }
 
   editingRow: number | null = null;
