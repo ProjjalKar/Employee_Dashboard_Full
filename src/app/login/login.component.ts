@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username = '';
-  password = '';
+  username:string = "projjal";
+  password:any = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
