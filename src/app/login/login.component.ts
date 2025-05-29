@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username:string = "projjal";
+  username:string = '';
   password:any = '';
 
   constructor(private authService: AuthService, private router: Router) {}
